@@ -9,17 +9,22 @@ export default function Hero() {
       id="hero"
       className="relative isolate flex min-h-[100svh] items-center overflow-hidden"
     >
-      {/* Background video */}
+      {/* Background video — mobile-first: phones get the smaller transcode,
+          tablets+ pull the higher-res desktop file. preload="metadata"
+          defers the body bytes until playback can begin. */}
       <video
         className="hero-video absolute inset-0 -z-20 h-full w-full object-cover"
-        src="/hero-bg.mp4"
         poster="/swpt-logo.png"
         autoPlay
         muted
         loop
         playsInline
+        preload="metadata"
         aria-hidden="true"
-      />
+      >
+        <source src="/hero-bg-mobile.mp4" type="video/mp4" media="(max-width: 767px)" />
+        <source src="/hero-bg.mp4" type="video/mp4" />
+      </video>
       {/* Soft aurora drifting underneath — slightly punchier on mobile */}
       <div
         className="aurora-bg -z-10 opacity-75 md:opacity-60"
