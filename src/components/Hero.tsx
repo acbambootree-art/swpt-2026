@@ -1,0 +1,145 @@
+import Image from "next/image";
+import HeroParticles from "./HeroParticles";
+
+export default function Hero() {
+  return (
+    <section
+      id="hero"
+      className="relative isolate flex min-h-[100svh] items-center overflow-hidden"
+    >
+      {/* Background video */}
+      <video
+        className="hero-video absolute inset-0 -z-20 h-full w-full object-cover"
+        src="/hero-bg.mp4"
+        poster="/swpt-logo.png"
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
+      />
+      {/* Soft aurora drifting underneath */}
+      <div className="aurora-bg -z-10 opacity-60" aria-hidden="true" />
+      {/* Single dark vignette for legibility */}
+      <div
+        className="absolute inset-0 -z-10"
+        aria-hidden="true"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(7,7,10,0.55) 0%, rgba(7,7,10,0.5) 40%, rgba(7,7,10,0.95) 100%)",
+        }}
+      />
+      <HeroParticles />
+
+      <div className="relative mx-auto grid w-full max-w-[1200px] grid-cols-1 items-center gap-14 px-6 py-24 md:py-28 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
+        {/* Left: copy stack — pared back to logo, headline, date, CTAs */}
+        <div className="flex flex-col items-start gap-7 text-left">
+          <div className="reveal is-visible">
+            <span className="eyebrow">The 1st Tournament</span>
+          </div>
+
+          <div className="reveal is-visible" style={{ animationDelay: "120ms" }}>
+            <Image
+              src="/swpt-logo.png"
+              alt="SWPT — South West Poker Tournament"
+              width={520}
+              height={208}
+              priority
+              className="w-[220px] md:w-[300px] lg:w-[340px] h-auto drop-shadow-[0_8px_30px_rgba(201,166,98,0.4)]"
+            />
+          </div>
+
+          <div className="reveal is-visible" style={{ animationDelay: "260ms" }}>
+            <h1 className="font-[family-name:var(--font-display)] text-[clamp(2rem,5vw,3.75rem)] font-bold leading-[1.05] tracking-wide max-w-xl">
+              <span className="metallic-text">South West Poker Tournament</span>
+            </h1>
+          </div>
+
+          <div className="reveal is-visible" style={{ animationDelay: "400ms" }}>
+            <div className="glass-strong shimmer-border inline-flex flex-col items-start gap-1 rounded-2xl px-6 py-4 shadow-[var(--shadow-glow-gold)]">
+              <span className="text-[0.7rem] uppercase tracking-[0.35em] text-gold/85">
+                Guaranteed Prize Pool
+              </span>
+              <span className="font-[family-name:var(--font-display)] text-[clamp(1.75rem,4vw,2.75rem)] leading-none metallic-text">
+                $50,000 USD
+              </span>
+            </div>
+          </div>
+
+          <div
+            className="reveal is-visible flex flex-wrap items-center gap-3"
+            style={{ animationDelay: "540ms" }}
+          >
+            <div className="glass inline-flex items-center gap-2 rounded-full px-5 py-2 text-cream font-medium tracking-wider text-sm md:text-base">
+              <span
+                className="h-1.5 w-1.5 rounded-full bg-gold dot-pulse"
+                aria-hidden="true"
+              />
+              May 8 – 13, 2026
+            </div>
+            <span className="text-warm/55 text-sm tracking-[0.25em] uppercase">
+              Grand Rezen · Guang&apos;an
+            </span>
+          </div>
+
+          <div
+            className="reveal is-visible mt-1 flex flex-col gap-3 sm:flex-row"
+            style={{ animationDelay: "680ms" }}
+          >
+            <a
+              href="#contact"
+              className="glow-cta inline-flex items-center justify-center rounded-full bg-gold px-8 py-3.5 text-base font-semibold text-black hover:bg-gold-soft transition-colors"
+            >
+              Register Now
+            </a>
+            <a
+              href="#schedule"
+              className="glass glass-sheen inline-flex items-center justify-center rounded-full px-8 py-3.5 text-base font-medium text-cream hover:text-gold transition-colors"
+            >
+              View Schedule
+            </a>
+          </div>
+        </div>
+
+        {/* Right: single chip centerpiece */}
+        <div
+          className="reveal-fade is-visible relative mx-auto w-full max-w-[420px] lg:max-w-[560px] aspect-square"
+          style={{ animationDelay: "300ms" }}
+        >
+          {/* Soft radial glow behind chip */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-[12%] rounded-full"
+            style={{
+              background:
+                "radial-gradient(closest-side, rgba(201,166,98,0.5), rgba(107,23,38,0.25) 55%, transparent 75%)",
+              filter: "blur(32px)",
+            }}
+          />
+          <Image
+            src="/chips/coin.png"
+            alt="SWPT 10,000 panda chip — front view"
+            width={1200}
+            height={1200}
+            priority
+            sizes="(min-width: 1024px) 40vw, 80vw"
+            className="relative h-full w-full object-contain drop-shadow-[0_24px_70px_rgba(0,0,0,0.8)]"
+            style={{ animation: "drift 8s ease-in-out infinite" }}
+          />
+        </div>
+      </div>
+
+      {/* Scroll cue */}
+      <div
+        aria-hidden="true"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-[0.7rem] text-gold/60 tracking-[0.35em] uppercase"
+      >
+        Scroll
+        <span
+          className="block h-8 w-px bg-gradient-to-b from-[color:var(--color-gold)] to-transparent"
+          style={{ animation: "drift 2.6s ease-in-out infinite" }}
+        />
+      </div>
+    </section>
+  );
+}
