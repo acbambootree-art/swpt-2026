@@ -48,7 +48,7 @@ export default function Hero() {
         style={{ animation: "wobble 9s ease-in-out infinite" }}
       />
       <Image
-        src="/chips/panda-coin.png"
+        src="/chips/coin.png"
         alt=""
         aria-hidden="true"
         width={400}
@@ -163,10 +163,10 @@ export default function Hero() {
               filter: "blur(24px)",
             }}
           />
-          {/* Featured 10K coin */}
+          {/* Featured panda-coin composition */}
           <Image
-            src="/chips/coin.png"
-            alt="SWPT 10,000 panda chip — front view"
+            src="/chips/panda-coin.png"
+            alt="SWPT panda-mascot chip with dice and roulette wheel"
             width={1200}
             height={1200}
             priority
