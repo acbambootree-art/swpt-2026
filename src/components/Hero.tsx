@@ -48,7 +48,7 @@ export default function Hero() {
         style={{ animation: "wobble 9s ease-in-out infinite" }}
       />
       <Image
-        src="/chips/coin.png"
+        src="/chips/panda-coin.png"
         alt=""
         aria-hidden="true"
         width={400}
