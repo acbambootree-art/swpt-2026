@@ -25,7 +25,7 @@ export default function Marquee() {
         {[...items, ...items, ...items].map((t, i) => (
           <span
             key={i}
-            className="inline-flex items-center gap-12 text-xs md:text-sm font-[family-name:var(--font-display)] tracking-[0.4em] uppercase whitespace-nowrap text-warm/85"
+            className="inline-flex items-center gap-8 md:gap-12 text-xs md:text-sm font-[family-name:var(--font-display)] tracking-[0.25em] md:tracking-[0.4em] uppercase whitespace-nowrap text-warm/85"
           >
             <span className="text-gold">{t}</span>
             <span

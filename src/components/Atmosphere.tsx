@@ -49,7 +49,7 @@ export default function Atmosphere() {
   return (
     <section
       id="atmosphere"
-      className="relative py-24 md:py-32 px-6 overflow-hidden bg-[color:var(--color-bg)]"
+      className="relative py-20 md:py-32 px-6 overflow-hidden bg-[color:var(--color-bg)]"
     >
       <div className="relative mx-auto max-w-[1200px]">
         <Reveal>
@@ -68,7 +68,7 @@ export default function Atmosphere() {
           </div>
         </Reveal>
 
-        <div className="grid gap-3 md:gap-4 grid-cols-2 md:grid-cols-3 auto-rows-[200px] md:auto-rows-[240px]">
+        <div className="grid gap-3 md:gap-4 grid-cols-2 md:grid-cols-3 auto-rows-[160px] md:auto-rows-[240px]">
           {tiles.map((t, i) => (
             <Reveal
               key={t.src}

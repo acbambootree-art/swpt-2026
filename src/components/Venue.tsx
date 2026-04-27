@@ -60,7 +60,7 @@ export default function Venue() {
   return (
     <section
       id="venue"
-      className="relative py-24 md:py-32 px-6 overflow-hidden bg-[color:var(--color-surface)]/40"
+      className="relative py-20 md:py-32 px-6 overflow-hidden bg-[color:var(--color-surface)]/40"
     >
       <div className="aurora-bg opacity-25" aria-hidden="true" />
       <div className="relative mx-auto max-w-[1200px]">
@@ -86,7 +86,7 @@ export default function Venue() {
         </Reveal>
 
         {/* Photo collage */}
-        <div className="grid gap-3 md:gap-4 grid-cols-1 md:grid-cols-3 md:auto-rows-[260px]">
+        <div className="grid gap-3 md:gap-4 grid-cols-1 md:grid-cols-3 auto-rows-[220px] md:auto-rows-[260px]">
           {photos.map((p, i) => (
             <Reveal
               key={p.src}

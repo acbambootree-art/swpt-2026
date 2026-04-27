@@ -31,9 +31,9 @@ export default function Hero() {
       />
       <HeroParticles />
 
-      <div className="relative mx-auto grid w-full max-w-[1200px] grid-cols-1 items-center gap-14 px-6 py-24 md:py-28 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
+      <div className="relative mx-auto grid w-full max-w-[1200px] grid-cols-1 items-center gap-10 px-6 py-20 md:gap-14 md:py-28 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
         {/* Left: copy stack — pared back to logo, headline, date, CTAs */}
-        <div className="flex flex-col items-start gap-7 text-left">
+        <div className="flex flex-col items-start gap-6 md:gap-7 text-left">
           <div className="reveal is-visible">
             <span className="eyebrow">The 1st Tournament</span>
           </div>
@@ -103,7 +103,7 @@ export default function Hero() {
 
         {/* Right: single chip centerpiece */}
         <div
-          className="reveal-fade is-visible relative mx-auto w-full max-w-[420px] lg:max-w-[560px] aspect-square"
+          className="reveal-fade is-visible relative mx-auto w-full max-w-[260px] md:max-w-[420px] lg:max-w-[560px] aspect-square"
           style={{ animationDelay: "300ms" }}
         >
           {/* Soft radial glow behind chip */}

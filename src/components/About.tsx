@@ -11,7 +11,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative py-24 md:py-32 px-6 overflow-hidden"
+      className="relative py-20 md:py-32 px-6 overflow-hidden"
     >
       <div className="relative mx-auto max-w-[1100px]">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:gap-16 items-start">

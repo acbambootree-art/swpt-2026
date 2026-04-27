@@ -12,7 +12,7 @@ export default function Schedule() {
   return (
     <section
       id="schedule"
-      className="relative py-24 md:py-32 px-6 overflow-hidden"
+      className="relative py-20 md:py-32 px-6 overflow-hidden"
     >
       <div className="aurora-bg opacity-15" aria-hidden="true" />
       <div className="relative mx-auto max-w-[1100px]">
