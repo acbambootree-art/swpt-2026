@@ -9,11 +9,11 @@ export default function Hero() {
       id="hero"
       className="relative isolate flex min-h-[100svh] items-center overflow-hidden"
     >
-      {/* Background video — mobile-first: phones get the smaller transcode,
-          tablets+ pull the higher-res desktop file. preload="metadata"
-          defers the body bytes until playback can begin. */}
+      {/* Background video — slow-motion golden-rays loop, 720p H.264, audio
+          stripped, +faststart. Single 1.4 MB file works for both viewports. */}
       <video
         className="hero-video absolute inset-0 -z-20 h-full w-full object-cover"
+        src="/hero-bg.mp4"
         poster="/swpt-logo.png"
         autoPlay
         muted
@@ -21,10 +21,7 @@ export default function Hero() {
         playsInline
         preload="metadata"
         aria-hidden="true"
-      >
-        <source src="/hero-bg-mobile.mp4" type="video/mp4" media="(max-width: 767px)" />
-        <source src="/hero-bg.mp4" type="video/mp4" />
-      </video>
+      />
       {/* Soft aurora drifting underneath — slightly punchier on mobile */}
       <div
         className="aurora-bg -z-10 opacity-75 md:opacity-60"
@@ -40,27 +37,6 @@ export default function Hero() {
         }}
       />
       <HeroParticles />
-
-      {/* Mobile-only floating chip accents — peek in from the corners */}
-      <Image
-        src="/chips/cascade.png"
-        alt=""
-        aria-hidden="true"
-        width={400}
-        height={500}
-        priority
-        className="md:hidden pointer-events-none absolute -right-10 top-16 w-[180px] h-auto opacity-80 drop-shadow-[0_18px_40px_rgba(0,0,0,0.7)] z-0"
-        style={{ animation: "wobble 9s ease-in-out infinite" }}
-      />
-      <Image
-        src="/chips/panda-coin.png"
-        alt=""
-        aria-hidden="true"
-        width={400}
-        height={400}
-        className="md:hidden pointer-events-none absolute -left-8 bottom-32 w-[110px] h-auto opacity-70 drop-shadow-[0_18px_40px_rgba(0,0,0,0.7)] z-0"
-        style={{ animation: "drift 6s ease-in-out infinite" }}
-      />
 
       <div className="relative mx-auto grid w-full max-w-[1200px] grid-cols-1 items-center gap-10 px-6 py-20 md:gap-14 md:py-28 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
         {/* Left: copy stack */}
