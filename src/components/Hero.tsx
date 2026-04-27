@@ -18,8 +18,11 @@ export default function Hero() {
         playsInline
         aria-hidden="true"
       />
-      {/* Soft aurora drifting underneath */}
-      <div className="aurora-bg -z-10 opacity-60" aria-hidden="true" />
+      {/* Soft aurora drifting underneath — slightly punchier on mobile */}
+      <div
+        className="aurora-bg -z-10 opacity-75 md:opacity-60"
+        aria-hidden="true"
+      />
       {/* Single dark vignette for legibility */}
       <div
         className="absolute inset-0 -z-10"
@@ -31,9 +34,30 @@ export default function Hero() {
       />
       <HeroParticles />
 
+      {/* Mobile-only floating chip accents — peek in from the corners */}
+      <Image
+        src="/chips/cascade.png"
+        alt=""
+        aria-hidden="true"
+        width={400}
+        height={500}
+        priority
+        className="md:hidden pointer-events-none absolute -right-10 top-16 w-[180px] h-auto opacity-80 drop-shadow-[0_18px_40px_rgba(0,0,0,0.7)] z-0"
+        style={{ animation: "wobble 9s ease-in-out infinite" }}
+      />
+      <Image
+        src="/chips/panda-coin.png"
+        alt=""
+        aria-hidden="true"
+        width={400}
+        height={400}
+        className="md:hidden pointer-events-none absolute -left-8 bottom-32 w-[110px] h-auto opacity-70 drop-shadow-[0_18px_40px_rgba(0,0,0,0.7)] z-0"
+        style={{ animation: "drift 6s ease-in-out infinite" }}
+      />
+
       <div className="relative mx-auto grid w-full max-w-[1200px] grid-cols-1 items-center gap-10 px-6 py-20 md:gap-14 md:py-28 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
-        {/* Left: copy stack — pared back to logo, headline, date, CTAs */}
-        <div className="flex flex-col items-start gap-6 md:gap-7 text-left">
+        {/* Left: copy stack */}
+        <div className="relative z-10 flex flex-col items-start gap-6 md:gap-7 text-left">
           <div className="reveal is-visible">
             <span className="eyebrow">The 1st Tournament</span>
           </div>
@@ -45,13 +69,18 @@ export default function Hero() {
               width={520}
               height={208}
               priority
-              className="w-[220px] md:w-[300px] lg:w-[340px] h-auto drop-shadow-[0_8px_30px_rgba(201,166,98,0.4)]"
+              className="w-[220px] md:w-[300px] lg:w-[340px] h-auto drop-shadow-[0_8px_30px_rgba(201,166,98,0.5)]"
             />
           </div>
 
           <div className="reveal is-visible" style={{ animationDelay: "260ms" }}>
             <h1 className="font-[family-name:var(--font-display)] text-[clamp(2rem,5vw,3.75rem)] font-bold leading-[1.05] tracking-wide max-w-xl">
-              <span className="metallic-text">South West Poker Tournament</span>
+              <span className="shimmer-text md:hidden">
+                South West Poker Tournament
+              </span>
+              <span className="hidden md:inline metallic-text">
+                South West Poker Tournament
+              </span>
             </h1>
           </div>
 
@@ -101,21 +130,33 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right: single chip centerpiece */}
+        {/* Right: featured chip centerpiece */}
         <div
-          className="reveal-fade is-visible relative mx-auto w-full max-w-[260px] md:max-w-[420px] lg:max-w-[560px] aspect-square"
+          className="reveal-fade is-visible relative z-10 mx-auto w-full max-w-[340px] md:max-w-[420px] lg:max-w-[560px] aspect-square"
           style={{ animationDelay: "300ms" }}
         >
-          {/* Soft radial glow behind chip */}
+          {/* Pulsing halo */}
           <div
             aria-hidden="true"
-            className="absolute inset-[12%] rounded-full"
+            className="absolute inset-[8%] rounded-full"
             style={{
               background:
-                "radial-gradient(closest-side, rgba(201,166,98,0.5), rgba(107,23,38,0.25) 55%, transparent 75%)",
-              filter: "blur(32px)",
+                "radial-gradient(closest-side, rgba(255,217,135,0.55), rgba(201,166,98,0.35) 45%, rgba(107,23,38,0.25) 70%, transparent 85%)",
+              filter: "blur(36px)",
+              animation: "halo-pulse 4.5s ease-in-out infinite",
             }}
           />
+          {/* Outer ring of soft glow */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 rounded-full pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(closest-side, transparent 55%, rgba(201,166,98,0.18) 70%, transparent 80%)",
+              filter: "blur(24px)",
+            }}
+          />
+          {/* Featured 10K coin */}
           <Image
             src="/chips/coin.png"
             alt="SWPT 10,000 panda chip — front view"
@@ -123,8 +164,8 @@ export default function Hero() {
             height={1200}
             priority
             sizes="(min-width: 1024px) 40vw, 80vw"
-            className="relative h-full w-full object-contain drop-shadow-[0_24px_70px_rgba(0,0,0,0.8)]"
-            style={{ animation: "drift 8s ease-in-out infinite" }}
+            className="relative h-full w-full object-contain drop-shadow-[0_24px_70px_rgba(0,0,0,0.85)]"
+            style={{ animation: "drift 7s ease-in-out infinite" }}
           />
         </div>
       </div>
