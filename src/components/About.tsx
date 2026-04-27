@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import Counter from "./Counter";
 
 const stats = [
   { value: "6", label: "Days of Action" },
@@ -49,9 +50,12 @@ export default function About() {
               <span className="text-[0.7rem] uppercase tracking-[0.35em] text-gold/85">
                 Guaranteed Prize Pool
               </span>
-              <div className="mt-2 font-[family-name:var(--font-display)] text-[clamp(2rem,4.5vw,3rem)] leading-none metallic-text">
-                $50,000 USD
-              </div>
+              <Counter
+                target={50000}
+                prefix="$"
+                suffix=" USD"
+                className="mt-2 block font-[family-name:var(--font-display)] text-[clamp(2rem,4.5vw,3rem)] leading-none metallic-text"
+              />
             </Reveal>
 
             <ul className="grid grid-cols-2 gap-4">

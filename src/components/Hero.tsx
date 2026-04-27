@@ -1,5 +1,7 @@
 import Image from "next/image";
 import HeroParticles from "./HeroParticles";
+import ParallaxLayer from "./ParallaxLayer";
+import Counter from "./Counter";
 
 export default function Hero() {
   return (
@@ -89,9 +91,12 @@ export default function Hero() {
               <span className="text-[0.7rem] uppercase tracking-[0.35em] text-gold/85">
                 Guaranteed Prize Pool
               </span>
-              <span className="font-[family-name:var(--font-display)] text-[clamp(1.75rem,4vw,2.75rem)] leading-none metallic-text">
-                $50,000 USD
-              </span>
+              <Counter
+                target={50000}
+                prefix="$"
+                suffix=" USD"
+                className="font-[family-name:var(--font-display)] text-[clamp(1.75rem,4vw,2.75rem)] leading-none metallic-text"
+              />
             </div>
           </div>
 
@@ -131,7 +136,9 @@ export default function Hero() {
         </div>
 
         {/* Right: featured chip centerpiece */}
-        <div
+        <ParallaxLayer
+          speed={0.18}
+          max={120}
           className="reveal-fade is-visible relative z-10 mx-auto w-full max-w-[340px] md:max-w-[420px] lg:max-w-[560px] aspect-square"
           style={{ animationDelay: "300ms" }}
         >
@@ -167,7 +174,7 @@ export default function Hero() {
             className="relative h-full w-full object-contain drop-shadow-[0_24px_70px_rgba(0,0,0,0.85)]"
             style={{ animation: "drift 7s ease-in-out infinite" }}
           />
-        </div>
+        </ParallaxLayer>
       </div>
 
       {/* Scroll cue */}
